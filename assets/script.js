@@ -213,6 +213,7 @@ function initializeData(){
             searchTab.innerHTML = searchHistory[i];
             searchTab.setAttribute("class","rounded-2 p-1 m-1 bg-info suggestion");
             searchTab.setAttribute("name",searchHistory[i]);
+            searchTab.addEventListener("click",suggestionHandler);
             $("#suggestions").append(searchTab);
         }
     } else {
