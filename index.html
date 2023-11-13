@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="./assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <title>WeatherWiz</title>
@@ -22,7 +24,7 @@
   </header>
 
 
-  <main class="flex-row row justify-content-around bg-light mt-3 container">
+  <main class="flex-row row justify-content-around bg-light mt-3">
     
     <!--Search Section-->
     <div class="col-12 col-md-4">
@@ -33,21 +35,21 @@
         <form id="search-form" class="card-body">
           <label class="" for="city-search">City:</label>
           <input name="city-search" id="city-search" type="text" autofocus="true" class="bg-light rounded-2" placeholder="San Diego" />
-          <button type="submit" class="rounded-2 border-2">Search</button>
+          <button type="submit" class="rounded-2 border-2" id="search-submit">Search</button>
         </form>
       </div>
 
       <!--Search Suggestions-->
       <div class="card">
         <form id="suggestions" class="card-body list-group">
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id=ral>Raleigh</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="dur">Durham</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="ch">Chapel Hill</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="ny">New York</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="sea">Seattle</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="la">Los Angeles</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="hou">Houston</button>
-          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="pld">Portland</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="ral" name="Raleigh">Raleigh</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="dur" name="Durham">Durham</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="ch" name="Chapel Hill">Chapel Hill</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="ny" name="New York">New York</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="sea" name="Seattle">Seattle</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="la" name="Los Angeles">Los Angeles</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="hou" name="Houston">Houston</button>
+          <button class="rounded-2 p-1 m-1 bg-info suggestion" id="pld" name="Portland">Portland</button>
         </form>
       </div>
     </div>
@@ -57,21 +59,21 @@
 
       <!--Daily Forecast-->
       <div class="card mb-2">
-        <h2 class="card-header bg-success">asdf</h2>
-        <div>
-          asdf
+        <h2 id="current-forecast-title" class="card-header bg-success">City</h2>
+        <div id="current-forecast">
+          <ul id="current-forecast-stats"></ul>
         </div>
       </div>
 
       <!--5-day Forecast-->
       <div class="card mr-2">
         <h2 class="card-header bg-success">Your 5-day Forecast:</h2>
-        <div id="5-day" class="flex row justify-content-around">
-          <div id="day-1" class="card col-2">a</div>
-          <div id="day-2" class="card col-2">s</div>
-          <div id="day-3" class="card col-2">d</div>
-          <div id="day-4" class="card col-2">f</div>
-          <div id="day-5" class="card col-2">g</div>
+        <div id="5-day" class="flex row justify-content-between container pl-2">
+          <div class="card col-2 mt-2 mb-2 ml-2 p-0"><ul id="day-1" ></ul></div>
+          <div class="card col-2 mt-2 mb-2 p-0"><ul id="day-2" ></ul></div>
+          <div class="card col-2 mt-2 mb-2 p-0"><ul id="day-3" ></ul></div>
+          <div class="card col-2 mt-2 mb-2 p-0"><ul id="day-4" ></ul></div>
+          <div class="card col-2 mt-2 mb-2 p-0"><ul id="day-5" ></ul></div>
         </div>
       </div>
 
